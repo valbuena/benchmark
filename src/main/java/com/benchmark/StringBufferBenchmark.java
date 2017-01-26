@@ -48,14 +48,12 @@ public class StringBufferBenchmark {
         StringBuffer stringBuffer = new StringBuffer(state.count);
         stringBuffer.append("join ... strings ");
         stringBuffer.append(state.count);
-        //System.out.println(stringBuffer.toString());
     }
 
     @Benchmark 
     public void testStringAdd(MyCounter state) {
         state.count++;
         String stringAdd = state.count + "join ... strings " + state.count;
-        //System.out.println(stringAdd);
     }
 
 

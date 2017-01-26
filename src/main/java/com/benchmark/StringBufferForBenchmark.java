@@ -21,7 +21,6 @@ public class StringBufferForBenchmark {
             stringBuffer.append("of");
             stringBuffer.append(state.count);
         }
-        //System.out.println(stringBuffer.toString());
     }
 
     @Benchmark
@@ -31,7 +30,6 @@ public class StringBufferForBenchmark {
         for (int i = 0; i< state.count; i++) {
             stringAdd = stringAdd + "join ... strings " + state.count;
         }
-        //System.out.println(stringAdd);
     }
 
 
