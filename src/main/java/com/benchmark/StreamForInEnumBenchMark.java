@@ -39,7 +39,7 @@ public class StreamForInEnumBenchMark {
     }
 
     @Benchmark
-    public void testFor(MyEnum state) {
+    public void testStream(MyEnum state) {
 
         Optional<EnumBenchmark> result = Stream.of(EnumBenchmark.values())
                 .filter(o -> o.getValue() == state.currentEnum)
@@ -47,7 +47,7 @@ public class StreamForInEnumBenchMark {
     }
 
     @Benchmark
-    public void testStream(MyEnum state) {
+    public void testFor(MyEnum state) {
         Optional<EnumBenchmark> result = Optional.empty();
         for (EnumBenchmark o : EnumBenchmark.values()) {
             if (o.getValue() == state.currentEnum) {
