@@ -33,24 +33,24 @@ public class StreamForInEnumBenchMark {
     }
 
 
-    @State(Scope.Benchmark)
-    public static class MyEnum {
-        public int currentEnum = new Random().nextInt(EnumBenchmark.values().length);
-    }
-
     @Benchmark
-    public void testStream(MyEnum state) {
+    public void testStream() {
+
+        int currentEnum = new Random().nextInt(EnumBenchmark.values().length);
 
         Optional<EnumBenchmark> result = Stream.of(EnumBenchmark.values())
-                .filter(o -> o.getValue() == state.currentEnum)
+                .filter(o -> o.getValue() == currentEnum)
                 .findFirst();
     }
 
     @Benchmark
-    public void testFor(MyEnum state) {
+    public void testFor() {
+
+        int currentEnum = new Random().nextInt(EnumBenchmark.values().length);
+
         Optional<EnumBenchmark> result = Optional.empty();
         for (EnumBenchmark o : EnumBenchmark.values()) {
-            if (o.getValue() == state.currentEnum) {
+            if (o.getValue() == currentEnum) {
                 result = Optional.of(o);
             }
         }
