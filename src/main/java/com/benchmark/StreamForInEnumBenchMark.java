@@ -1,8 +1,6 @@
 package com.benchmark;
 
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
 
 import java.util.Optional;
 import java.util.Random;
@@ -52,6 +50,7 @@ public class StreamForInEnumBenchMark {
         for (EnumBenchmark o : EnumBenchmark.values()) {
             if (o.getValue() == currentEnum) {
                 result = Optional.of(o);
+                break;
             }
         }
 
